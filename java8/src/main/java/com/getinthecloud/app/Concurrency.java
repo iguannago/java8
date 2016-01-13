@@ -10,8 +10,14 @@ public final class Concurrency {
 
 
     public static void main(String[] args) {
-//        normalConcurrentTask();
-        concurrentTaskPutToSleep();
+        concurrency(2);
+    }
+
+    private static void concurrency(int option) {
+        switch (option) {
+            case 1: normalConcurrentTask();
+            case 2: concurrentTaskPutToSleep();
+        }
     }
 
     private static void concurrentTaskPutToSleep() {
