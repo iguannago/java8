@@ -1,5 +1,7 @@
 package com.getinthecloud.app;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -10,13 +12,24 @@ public final class Concurrency {
 
 
     public static void main(String[] args) {
-        concurrency(2);
+        concurrency(3);
+
+    }
+
+    private static void executorService() {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(() -> {
+            String threadName = Thread.currentThread().getName();
+            System.out.println("Hello " + threadName);
+        });
     }
 
     private static void concurrency(int option) {
         switch (option) {
-            case 1: normalConcurrentTask();
-            case 2: concurrentTaskPutToSleep();
+            case 1: normalConcurrentTask();break;
+            case 2: concurrentTaskPutToSleep();break;
+            case 3: executorService();break;
+
         }
     }
 
