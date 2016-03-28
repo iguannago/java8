@@ -21,6 +21,10 @@ public class StringList {
         });
     }
 
+    public void sortLambda() {
+        Collections.sort(arrayList, (a, b) -> b.compareTo(a)); //just one code line!
+    }
+
     public List<String> getArrayList() {
         return arrayList;
     }

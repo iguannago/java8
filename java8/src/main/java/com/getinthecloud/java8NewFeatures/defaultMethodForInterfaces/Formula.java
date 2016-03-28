@@ -4,7 +4,7 @@ package com.getinthecloud.java8NewFeatures.defaultMethodForInterfaces;
  * Created by davicres on 28/03/2016.
  * source: http://winterbe.com/posts/2014/03/16/java-8-tutorial/
  */
-interface Formula {
+public interface Formula {
     double calculate(int a);
     default double sqrt(int a) {
         return Math.sqrt(a);
