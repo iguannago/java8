@@ -1,4 +1,4 @@
-package com.getinthecloud.app;
+package com.getinthecloud.concurrency;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
