@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class StringList {
 
-    private List<String> arrayList = Arrays.asList("David", "Fatima", "my little one");
+    private List<String> arrayList = Arrays.asList("Zafra", "MyLittleOne","Fatima", "David");
 
     public void sort() {
         Collections.sort(arrayList, new Comparator<String>() {
@@ -28,5 +28,7 @@ public class StringList {
     public static void main(String[] args) {
         StringList stringList = new StringList();
         System.out.println("before sorting: " + stringList.getArrayList());
+        stringList.sort();
+        System.out.println("after sorting: " + stringList.getArrayList());
     }
 }
