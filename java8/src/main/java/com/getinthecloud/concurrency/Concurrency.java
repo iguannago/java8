@@ -9,8 +9,6 @@ import java.util.concurrent.TimeUnit;
  */
 public final class Concurrency {
 
-
-
     public static void main(String[] args) {
         concurrency(3);
 
@@ -22,6 +20,25 @@ public final class Concurrency {
             String threadName = Thread.currentThread().getName();
             System.out.println("Hello " + threadName);
         });
+        System.out.println("Done!");
+        preferredWayToTerminateExecutor(executor);
+    }
+
+    private static void preferredWayToTerminateExecutor(ExecutorService executor) {
+        try {
+            System.out.println("Shutting down executor");
+            executor.shutdown();
+            executor.awaitTermination(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (!executor.isTerminated()) {
+                System.out.println("Shutting down now executor");
+                executor.shutdownNow();
+            }
+            System.out.println("Shutting down finished");
+        }
     }
 
     private static void concurrency(int option) {
@@ -38,7 +55,7 @@ public final class Concurrency {
             try {
                 String name = Thread.currentThread().getName();
                 System.out.println("Foo " + name);
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(3);
                 System.out.println("Bar " + name);
             }
             catch (InterruptedException e) {

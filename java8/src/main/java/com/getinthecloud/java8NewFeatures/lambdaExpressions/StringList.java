@@ -34,5 +34,6 @@ public class StringList {
         System.out.println("before sorting: " + stringList.getArrayList());
         stringList.sort();
         System.out.println("after sorting: " + stringList.getArrayList());
+        System.out.printf("Hi there");
     }
 }
