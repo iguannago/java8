@@ -8,7 +8,7 @@ public interface Converter<F, T> {
     T convert (F from);
 
     static void main(String[] args) {
-        Converter<String, Integer> converter = from -> Integer.valueOf(from);
+        Converter<String, Integer> converter = Integer::valueOf;
         int converted = converter.convert("123");
         System.out.println("converted: " + converted);
     }

@@ -2,7 +2,6 @@ package com.getinthecloud.java8NewFeatures.lambdaExpressions;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -13,12 +12,7 @@ public class StringList {
     private List<String> arrayList = Arrays.asList("Zafra", "MyLittleOne","Fatima", "David");
 
     public void sort() {
-        Collections.sort(arrayList, new Comparator<String>() {
-            @Override
-            public int compare(String a, String b) {
-                return a.compareTo(b);
-            }
-        });
+        Collections.sort(arrayList, String::compareTo);
     }
 
     public void sortLambda() {
